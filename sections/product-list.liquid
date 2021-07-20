@@ -1,0 +1,68 @@
+{% for block in section.blocks %}  
+
+<h3> {{ block.settings.promotional_label }} </h3>
+<p> {{ block.settings.promotional_text }} </p>
+<p> {{ block.settings.promotional_subtext }} </p>
+<img src ="{{ block.settings.promotional_banner | img_url: '300x300' }}" />
+
+{% endfor %}  
+
+{% schema %}
+  {
+    "name": "Promotional Section",
+    "blocks":
+  [
+    {
+      "type": "block-1",
+      "name": "Promotional Heading",
+      "settings": [
+       {
+          "id": "promotional_label",
+          "type": "text",
+          "label": "Promotional Label"
+        }
+        
+        
+      ]
+    },
+    {
+      "type": "block-2",
+      "name": "Promotional Banner",
+      "settings": [
+        {
+          "id": "off_text",
+          "type": "text",
+          "label": "OFF"
+        }, 
+       {
+          "id": "promotional_text",
+          "type": "text",
+          "label": "Label"
+        },
+        {
+          "id": "promotional_subtext",
+          "type": "text",
+          "label": "Sub Label"
+        },
+         {
+          "id": "promotional_banner",
+          "type": "image_picker",
+          "label": "Banner"
+        },
+        {
+		  "type": "url",
+		  "id": "promotional_link_url",
+	      "label": "Link"
+		}
+      ]
+    }
+  ]
+  
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

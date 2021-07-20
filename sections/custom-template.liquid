@@ -1,0 +1,46 @@
+{%- assign img_url = section.settings.image | img_url: '300x300'  -%}
+
+<img src="{{  img_url }}" />
+{%- if section.settings.heading != blank -%}
+<h2>{{ section.settings.heading }}</h2>
+{% endif %}
+
+{%- if section.settings.title != blank -%}
+<p>{{ section.settings.title | escape }}</p>
+
+{% endif %}
+<p>{{ section.settings.text | escape }}</p>
+ {% schema %}
+  {
+    "name": "custom-template-section",
+    "settings": [
+       {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+       {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "text",
+        "type": "textarea",
+        "label": "TextArea"
+      }    
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
